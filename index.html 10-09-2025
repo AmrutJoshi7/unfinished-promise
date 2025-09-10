@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Unfinished Promise</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    header nav a:hover {
+      color: #ff4c8b;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #home {
+      background: linear-gradient(135deg, #ff4c8b, #6a5acd);
+    }
+
+    #home h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    #cover {
+      background: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      color: #fff;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    #cover h2 {
+      font-size: 2.5em;
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    #story {
+      background: #222;
+    }
+
+    #story h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    #story p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#cover">Cover</a>
+      <a href="#story">Story</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <div>
+      <h1>The Unfinished Promise</h1>
+      <p>A journey that begins but never ends...</p>
+    </div>
+  </section>
+
+  <section id="cover">
+    <h2>A promise left in the wind...</h2>
+  </section>
+
+  <section id="story">
+    <div>
+      <h2>Story</h2>
+      <p>
+        This is where your story will unfold.  
+        You can write about emotions, journeys, and dreams that remain incomplete.  
+        A tale of what could have been, yet still lingers in memory.  
+        Add as much or as little text as you wish here.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 The Unfinished Promise | Crafted with ❤️
+  </footer>
+
+</body>
+</html>
