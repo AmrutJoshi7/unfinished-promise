@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,92 +8,164 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #111;
-      color: #fff;
+      font-family: "Georgia", serif;
       scroll-behavior: smooth;
+      background-color: #111;
+      color: #eee;
+      overflow-x: hidden;
     }
-
     header {
+      background: rgba(0,0,0,0.85);
+      padding: 15px 0;
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
       z-index: 1000;
     }
-
-    header nav a {
+    nav {
+      text-align: center;
+    }
+    nav a {
       color: #fff;
       text-decoration: none;
       margin: 0 20px;
-      font-size: 18px;
-      transition: 0.3s;
+      font-weight: bold;
+      transition: color 0.3s;
     }
-
-    header nav a:hover {
-      color: #ff4c8b;
+    nav a:hover {
+      color: #ff4b6e;
     }
-
     section {
-      min-height: 100vh;
       padding: 100px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      min-height: 100vh;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 1;
     }
-
     #home {
-      background: linear-gradient(135deg, #ff4c8b, #6a5acd);
+      background: linear-gradient(to right, #c31432, #240b36);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
     }
-
     #home h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
+      font-size: 3.5em;
+      margin: 0;
+      animation: fadeDown 2s ease-in-out;
     }
-
+    #home p {
+      font-size: 1.3em;
+      opacity: 0.9;
+      animation: fadeUp 3s ease-in-out;
+    }
     #cover {
-      background: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-      color: #fff;
-      text-shadow: 2px 2px 8px #000;
+      background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      position: relative;
     }
-
+    #cover::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
     #cover h2 {
-      font-size: 2.5em;
-      background: rgba(0,0,0,0.5);
+      position: relative;
+      font-size: 2em;
       padding: 20px;
       border-radius: 10px;
+      animation: fadeIn 3s ease-in-out;
     }
-
     #story {
-      background: #222;
+      background: url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      background-attachment: fixed;
+      position: relative;
+      color: #fff;
     }
-
+    #story::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 0;
+    }
+    #story h2, #story p {
+      position: relative;
+      z-index: 1;
+    }
     #story h2 {
-      font-size: 2em;
+      text-align: center;
+      font-size: 2.5em;
       margin-bottom: 20px;
+      color: #ff4b6e;
     }
-
     #story p {
-      max-width: 700px;
-      margin: auto;
+      padding: 0 30px 20px 30px;
+      font-size: 1.2em;
       line-height: 1.8;
-      font-size: 18px;
+      text-align: justify;
+      animation: fadeInText 2.5s ease-in-out;
     }
-
     footer {
+      background: #000;
+      color: #aaa;
       text-align: center;
       padding: 20px;
-      background: #000;
-      font-size: 14px;
-      color: #888;
+      position: relative;
+      z-index: 1;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInText {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Falling Petals */
+    .petal {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_rose_petals.svg/512px-Red_rose_petals.svg.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+    @keyframes fall {
+      0% {transform: translateY(-50px) rotate(0deg);}
+      100% {transform: translateY(110vh) rotate(360deg);}
     }
   </style>
 </head>
 <body>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther30.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
 
   <header>
     <nav>
@@ -103,31 +176,67 @@
   </header>
 
   <section id="home">
-    <div>
-      <h1>The Unfinished Promise</h1>
-      <p>A journey that begins but never ends...</p>
-    </div>
+    <h1>The Unfinished Promise</h1>
+    <p>A journey of love, loss, and eternal silence.</p>
   </section>
 
   <section id="cover">
-    <h2>A promise left in the wind...</h2>
+    <h2>Every story begins with a promise… but not all promises find an ending.</h2>
   </section>
 
   <section id="story">
-    <div>
-      <h2>Story</h2>
-      <p>
-        This is where your story will unfold.  
-        You can write about emotions, journeys, and dreams that remain incomplete.  
-        A tale of what could have been, yet still lingers in memory.  
-        Add as much or as little text as you wish here.
-      </p>
-    </div>
+    <h2>The Story</h2>
+    <p><strong>The Unfinished Promise ◌</strong><br>
+    Some promises break without a sound, but their silence lasts forever.</p>
+
+    <p>
+      Amrut had always loved Poonam. She was not just his cousin; she was the girl who made his world brighter. They shared small secrets, shy smiles, and even dreams of a future together. Poonam herself had once told him that she imagined their marriage, that she could see them living as husband and wife.
+    </p>
+
+    <p>
+      For Amrut, those words became truth. He held on to them as if they were a promise.
+    </p>
+
+    <p>
+      But one day, Poonam changed her heart. She told him they couldn’t be together because they were cousins, because society would never accept it. She walked away, leaving Amrut alone with his shattered hopes.
+    </p>
+
+    <p>
+      Amrut did not fight back. He did not question her choice. He simply broke from the inside. His laughter stopped, his dreams dissolved, and life became empty.
+    </p>
+
+    <p>
+      Now, his days pass without meaning. He eats, he walks, he works, but there is no interest in anything. Friends speak to him, but he answers with silence. The boy who once lived with fire in his eyes is gone.
+    </p>
+
+    <p>
+      And this is his revenge—quiet but deep. He doesn’t try to hurt Poonam, he doesn’t try to ruin her life. Instead, he carries his emptiness with him. Each time Poonam thinks of him, she will remember not his anger, but the broken man she left behind.
+    </p>
+
+    <p>
+      Amrut’s revenge is not to destroy her—it is to show that she destroyed him……….
+    </p>
   </section>
 
   <footer>
-    © 2025 The Unfinished Promise | Crafted with ❤️
+    <p>&copy; 2025 The Unfinished Promise. All Rights Reserved.</p>
   </footer>
+
+  <!-- Petals Generator -->
+  <script>
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+      petal.style.opacity = Math.random();
+      petal.style.transform = "rotate(" + (Math.random() * 360) + "deg)";
+      document.body.appendChild(petal);
+
+      setTimeout(() => { petal.remove(); }, 10000);
+    }
+    setInterval(createPetal, 500);
+  </script>
 
 </body>
 </html>
